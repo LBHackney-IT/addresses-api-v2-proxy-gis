@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 
+
 const API_ENDPOINT =
   "https://6kb2p9kgb0.execute-api.eu-west-2.amazonaws.com/production/api/v1/addresses";
 
@@ -48,7 +49,7 @@ const API_ENDPOINT =
         'Access-Control-Allow-Origin': 'http://localhost:1234',
         'Access-Control-Allow-Credentials': false
       },
-      body: JSON.stringify({
+      body: `${process.env.TOKEN} <br>` + JSON.stringify({
         data: await response.json(),
       }),
     };
