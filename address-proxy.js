@@ -29,8 +29,7 @@ const API_ENDPOINT =
     try {
       response = await fetch(request, {
         headers: {
-            //Authorization: process.env.TOKEN,
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyIiwiY29uc3VtZXJOYW1lIjoiUG9zdG1hbiIsImNvbnN1bWVyVHlwZSI6IjEiLCJuYmYiOjE2MDgzMDA1MzMsImV4cCI6MTkyMzgzMzMzMywiaWF0IjoxNjA4MzAwNTMzfQ.mTZuCDm82U5GlASGXbGQRj4avpcWyMu1aRbYiHp0Pkg`,
+            Authorization: process.env.TOKEN,
         },
       });
     } catch (err) {
