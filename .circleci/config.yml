@@ -88,6 +88,12 @@ jobs:
           name: echo testvar
           command: |
             echo $TESTVAR 
+        - run:
+          name: Setting environment vars for test env
+          command: |
+            echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
+            echo "TESTVAR=${TESTVAR}" >> ${ENV_FILE}
+
 
   build-deploy-production:
     executor: aws-cli/default
