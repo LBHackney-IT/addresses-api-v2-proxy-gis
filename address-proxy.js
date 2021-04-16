@@ -18,6 +18,9 @@ const API_ENDPOINT =
       else{
         request = request + `?format=simple`;
       }
+      if (event.queryStringParameters.uprn){
+        request = request + `&uprn=${event.queryStringParameters.uprn}`;
+      }
       if (event.queryStringParameters.postcode){
         request = request + `&postcode=${event.queryStringParameters.postcode}`;
       }
