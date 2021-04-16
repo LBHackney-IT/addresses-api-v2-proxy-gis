@@ -88,7 +88,7 @@ jobs:
           name: echo testvar
           command: |
             echo $TESTVAR 
-        - run:
+      - run:
           name: Setting environment vars for test env
           command: |
             echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
