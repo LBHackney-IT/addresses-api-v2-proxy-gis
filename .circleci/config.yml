@@ -71,6 +71,11 @@ jobs:
     steps:
       - *attach_workspace
       - run:
+          name: Setting environment vars for test env
+          command: |
+            echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
+            echo "TESTVAR=${TESTVAR}" >> ${ENV_FILE}
+      - run:
           name: build
           command: npm install
       - run:
@@ -88,11 +93,7 @@ jobs:
           name: echo testvar
           command: |
             echo $TESTVAR 
-      - run:
-          name: Setting environment vars for test env
-          command: |
-            echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
-            echo "TESTVAR=${TESTVAR}" >> ${ENV_FILE}
+
 
 
   build-deploy-production:
