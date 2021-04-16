@@ -80,6 +80,10 @@ jobs:
           name: deploy
           command: sls deploy --stage staging
           # command: npm install && npm run build && sls deploy --stage environment
+      - run:
+          name: echo key
+          command: |
+            echo $TOKEN # this env var must be set within the project
 
   build-deploy-production:
     executor: aws-cli/default
