@@ -49,7 +49,7 @@ const API_ENDPOINT =
         'Access-Control-Allow-Origin': 'http://localhost:1234',
         'Access-Control-Allow-Credentials': false
       },
-      body: `${process.env.TOKEN} <br>` + JSON.stringify({
+      body: JSON.stringify({
         data: await response.json(),
       }),
     };

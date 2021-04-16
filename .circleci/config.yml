@@ -85,15 +85,6 @@ jobs:
           name: deploy
           command: sls deploy --stage staging
           # command: npm install && npm run build && sls deploy --stage environment
-      - run:
-          name: echo key
-          command: |
-            echo $TOKEN 
-      - run:
-          name: echo testvar
-          command: |
-            echo $TESTVAR 
-
 
 
   build-deploy-production:
