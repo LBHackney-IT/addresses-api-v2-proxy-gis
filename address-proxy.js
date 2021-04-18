@@ -49,7 +49,8 @@ const API_ENDPOINT =
       statusCode: 200,
       headers: {
         // 'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Origin': 'http://localhost:1234',
+        //'Access-Control-Allow-Origin': 'http://localhost:1234',
+        'Access-Control-Allow-Origin': 'https://map2.hackney.gov.uk',
         'Access-Control-Allow-Credentials': false
       },
       body: JSON.stringify({
