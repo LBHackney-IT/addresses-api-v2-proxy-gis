@@ -74,6 +74,7 @@ jobs:
           name: Setting environment vars for test env
           command: |
             echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
+            echo "ALLOWED_ORIGIN=${ALLOWED_ORIGIN_STAGING}" >> ${ENV_FILE}
       - run:
           name: build
           command: npm install
@@ -94,6 +95,7 @@ jobs:
           name: Setting environment vars for prod env
           command: |
             echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
+            echo "ALLOWED_ORIGIN=${ALLOWED_ORIGIN_PROD}" >> ${ENV_FILE}
       - run:
           name: build
           command: npm install
