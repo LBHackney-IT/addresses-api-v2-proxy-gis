@@ -155,13 +155,17 @@ workflows:
           #   - e2e
           filters:
             branches:
-              only: staging
+              only: 
+                - staging
+                - master
       - build-deploy-staging:
           requires:
             - assume-role-staging
           filters:
             branches:
-              only: staging
+              only: 
+                - staging
+                - master
       - permit-deploy-production:
           type: approval
           requires:
