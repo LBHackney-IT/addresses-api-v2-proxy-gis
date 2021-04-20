@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 
+
 const API_ENDPOINT =
   "https://6kb2p9kgb0.execute-api.eu-west-2.amazonaws.com/production/api/v1/addresses";
 
@@ -16,6 +17,9 @@ const API_ENDPOINT =
       }
       else{
         request = request + `?format=simple`;
+      }
+      if (event.queryStringParameters.uprn){
+        request = request + `&uprn=${event.queryStringParameters.uprn}`;
       }
       if (event.queryStringParameters.postcode){
         request = request + `&postcode=${event.queryStringParameters.postcode}`;
@@ -45,7 +49,8 @@ const API_ENDPOINT =
       statusCode: 200,
       headers: {
         // 'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Origin': 'http://localhost:1234',
+        //'Access-Control-Allow-Origin': 'http://localhost:1234',
+        'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN,
         'Access-Control-Allow-Credentials': false
       },
       body: JSON.stringify({

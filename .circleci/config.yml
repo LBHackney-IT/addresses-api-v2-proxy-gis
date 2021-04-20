@@ -71,6 +71,11 @@ jobs:
     steps:
       - *attach_workspace
       - run:
+          name: Setting environment vars for test env
+          command: |
+            echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
+            echo "ALLOWED_ORIGIN=${ALLOWED_ORIGIN_STAGING}" >> ${ENV_FILE}
+      - run:
           name: build
           command: npm install
       - run:
@@ -81,14 +86,25 @@ jobs:
           command: sls deploy --stage staging
           # command: npm install && npm run build && sls deploy --stage environment
 
+
   build-deploy-production:
     executor: aws-cli/default
     steps:
       - *attach_workspace
       - run:
+          name: Setting environment vars for prod env
+          command: |
+            echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
+            echo "ALLOWED_ORIGIN=${ALLOWED_ORIGIN_PROD}" >> ${ENV_FILE}
+      - run:
+          name: build
+          command: npm install
+      - run:
+          name: serverless install
+          command: sudo npm i -g serverless
+      - run:
           name: deploy
-          # command: npm install parcel-bundler --save-dev && npm run build && sudo npm i -g serverless && sls deploy --stage production
-          command: npm install && sls deploy --stage production
+          command: sls deploy --stage production
 
   assume-role-staging:
     executor: docker-python
