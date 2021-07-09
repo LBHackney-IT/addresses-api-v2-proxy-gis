@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 
 
 const API_ENDPOINT =
-  "https://6kb2p9kgb0.execute-api.eu-west-2.amazonaws.com/production/api/v1/addresses";
+  "https://6kb2p9kgb0.execute-api.eu-west-2.amazonaws.com/production/api/v2/addresses";
 
 
 

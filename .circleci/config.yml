@@ -141,7 +141,7 @@ workflows:
             branches:
               only:
                 - staging
-                - master
+                - main
       # - tests:
       #     requires:
       #       - install-dependencies
@@ -157,7 +157,7 @@ workflows:
             branches:
               only: 
                 - staging
-                - master
+                - main
       - build-deploy-staging:
           requires:
             - assume-role-staging
@@ -165,24 +165,24 @@ workflows:
             branches:
               only: 
                 - staging
-                - master
+                - main
       - permit-deploy-production:
           type: approval
           requires:
             - build-deploy-staging
           filters:
             branches:
-              only: master
+              only: main
       - assume-role-production:
           context: api-assume-role-production-context
           requires:
             - permit-deploy-production
           filters:
             branches:
-              only: master
+              only: main
       - build-deploy-production:
           requires:
             - assume-role-production
           filters:
             branches:
-              only: master
+              only: main
