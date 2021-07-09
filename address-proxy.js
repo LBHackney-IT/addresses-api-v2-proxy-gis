@@ -27,6 +27,9 @@ const API_ENDPOINT =
       if (event.queryStringParameters.page){
         request = request + `&page=${event.queryStringParameters.page}`;
       }
+      if (event.queryStringParameters.query){
+        request = request + `&query=${event.queryStringParameters.query}`;
+      }
 
     }
   
