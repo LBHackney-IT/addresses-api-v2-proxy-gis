@@ -4,12 +4,9 @@ const fetch = require("node-fetch");
 const API_ENDPOINT =
   "https://6kb2p9kgb0.execute-api.eu-west-2.amazonaws.com/production/api/v2/addresses";
 
-
-
-
   exports.handler = async (event, context) => {
     let response;
-    //let { postcode } = event.queryStringParameters;
+    
     let request = `${API_ENDPOINT}`;
     if (event.queryStringParameters){
       if (event.queryStringParameters.format){
@@ -51,8 +48,6 @@ const API_ENDPOINT =
     return {
       statusCode: 200,
       headers: {
-        // 'Access-Control-Allow-Origin': '*',
-        //'Access-Control-Allow-Origin': 'http://localhost:1234',
         'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN,
         'Access-Control-Allow-Credentials': false
       },
