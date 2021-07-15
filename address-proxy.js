@@ -1,13 +1,13 @@
 const fetch = require("node-fetch");
 
 
-const API_ENDPOINT =
+const API_ENDPOINT_STAGING =
   "https://6kb2p9kgb0.execute-api.eu-west-2.amazonaws.com/staging/api/v2/addresses";
 
   exports.handler = async (event, context) => {
     let response;
     
-    let request = `${API_ENDPOINT}`;
+    let request = `${API_ENDPOINT_STAGING}`;
     if (event.queryStringParameters){
       if (event.queryStringParameters.format){
         request = request + `?format=${event.queryStringParameters.format}`;
@@ -33,7 +33,7 @@ const API_ENDPOINT =
     try {
       response = await fetch(request, {
         headers: {
-            Authorization: process.env.TOKEN,
+            Authorization: process.env.TOKEN_STAGING,
         },
       });
     } catch (err) {
@@ -48,7 +48,7 @@ const API_ENDPOINT =
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN,
+        'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN_STAGING,
         'Access-Control-Allow-Credentials': false
       },
       body: JSON.stringify({
