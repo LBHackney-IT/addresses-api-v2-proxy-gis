@@ -94,8 +94,8 @@ jobs:
       - run:
           name: Setting environment vars for prod env
           command: |
-            echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
-            echo "ALLOWED_ORIGIN=${ALLOWED_ORIGIN_PROD}" >> ${ENV_FILE}
+            echo "TOKEN=${TOKEN}" >> ${process.env}
+            echo "ALLOWED_ORIGIN=${ALLOWED_ORIGIN_PROD}" >> ${process.env}
       - run:
           name: build
           command: npm install
