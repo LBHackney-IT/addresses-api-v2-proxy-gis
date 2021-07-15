@@ -72,9 +72,10 @@ jobs:
       - *attach_workspace
       - run:
           name: Setting environment vars for test env
+           # we need to set up the environment variables in the circle ci project settings
           command: |
             echo "TOKEN=${TOKEN}" >> ${ENV_FILE}
-            echo "ALLOWED_ORIGIN=${ALLOWED_ORIGIN_STAGING}" >> ${ENV_FILE}
+            echo "ALLOWED_ORIGIN=${ALLOWED_ORIGIN_STAGING}" >> ${ENV_FILE}  
       - run:
           name: build
           command: npm install
