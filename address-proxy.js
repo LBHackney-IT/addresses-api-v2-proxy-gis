@@ -31,7 +31,7 @@ const API_ENDPOINT =
         request = request + `&usage_primary=${event.queryStringParameters.usage_primary}`;
       }
       else{
-        request = request + `?usage_primary=residential,commercial,dual use,land`;
+        request = request + `&usage_primary=residential,commercial,dual use,land`;
       }
 
     }
