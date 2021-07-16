@@ -30,6 +30,9 @@ const API_ENDPOINT =
       else{
         request = request + `&usage_primary=residential,commercial,dual use,land`;
       }
+      if (event.queryStringParameters.address_status){
+        request = request + `&address_status=${event.queryStringParameters.address_status}`;
+      }
       if (event.queryStringParameters.query){
         request = request + `&query=${event.queryStringParameters.query}`;
       }
