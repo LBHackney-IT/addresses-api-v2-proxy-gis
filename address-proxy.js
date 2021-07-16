@@ -24,10 +24,15 @@ const API_ENDPOINT =
       if (event.queryStringParameters.page){
         request = request + `&page=${event.queryStringParameters.page}`;
       }
+      if (event.queryStringParameters.usage_primary){
+        request = request + `&usage_primary=${event.queryStringParameters.usage_primary}`;
+      }
+      else{
+        request = request + `&usage_primary=residential,commercial,dual use,land`;
+      }
       if (event.queryStringParameters.query){
         request = request + `&query=${event.queryStringParameters.query}`;
       }
-
     }
   
     try {
