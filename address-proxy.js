@@ -72,7 +72,7 @@ exports.handler = async (event, context) => {
         'Access-Control-Allow-Origin': 'xxx',
         'Access-Control-Allow-Credentials': false
       },
-      body: 'forbidden'
+      body: 'grosse blague'
     }
   }
   
