@@ -66,7 +66,7 @@ exports.handler = async (event, context) => {
     };
   }
   else {
-    console.log('LOG REQUEST')
+    console.log('LOG REQUEST');
     return{
       statusCode: 401,
       headers: {
