@@ -68,6 +68,10 @@ exports.handler = async (event, context) => {
   else {
     return{
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN,
+        'Access-Control-Allow-Credentials': false
+      },
       body: JSON.stringify({
       message: 'here is your event!',
       input: event,
