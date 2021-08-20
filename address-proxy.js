@@ -81,7 +81,7 @@ exports.handler = async (event, context) => {
       })
     }
   }
-  else if (event.headers.origin == 'http://localhost:900'){
+  else if (event.headers.origin == 'http://localhost:9000'){
     return{
       statusCode: 200,
       headers: {
