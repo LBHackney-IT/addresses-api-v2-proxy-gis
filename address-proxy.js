@@ -53,7 +53,7 @@ exports.handler = async (event, context) => {
     };
   }
 
-  const whitelist = ['http://localhost:9000', 'https://map2.hackney.gov.uk'];
+  const whitelist = process.env.ALLOWED_ORIGIN;
   // const whitelist = process.env.WHITELIST;
   if (false){
     return {
