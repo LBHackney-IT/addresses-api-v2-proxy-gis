@@ -53,6 +53,7 @@ exports.handler = async (event, context) => {
     };
   }
 
+  const whitelist = ['http://localhost:9000', 'https://map2.hackney.gov.uk'];
   if (false){
     return {
       statusCode: 200,
@@ -81,7 +82,7 @@ exports.handler = async (event, context) => {
       })
     }
   }
-  else if (event.headers.origin == 'http://localhost:9000'){
+  else if (whitelist.indexOf(event.headers.origin) !== -1){
     return{
       statusCode: 200,
       headers: {
