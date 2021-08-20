@@ -2,10 +2,21 @@
 
 ## About
 
-This is a GitHub repository template to be used for creating new repositories within the LBHackney-IT organisation.
+This is a serverless function that calls the Addresses API, to keep the API token secure. 
+It can pass the following query parameters:
+
+- postcode
+- UPRN
+- usage_primary
+- address_status
+- query (full text search)
+- page
+
+It only allows cross-domain requests from the Hackney website and Hackney GIS pages.
+
 ## Build/Setup
 
-Blah blah blah
+Deployed in Circle-CI
 
 ## Setting Up Git
 
@@ -18,9 +29,9 @@ command run
 Notes on GitFlow and links to docs
 
 ## Git Secrets
-
-- Blah blah blah
-- Blah blah blah
+Secrets are defined in CircleCI env variables:
+- Addresses API token 
+- Whitelist of Allowed Origin Requests (CORS)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
