@@ -74,7 +74,7 @@ exports.handler = async (event, context) => {
       },
       body: JSON.stringify({
       message: 'here is your event!',
-      input: event,
+      input: event.headers.origin,
       }),
     }
   }
