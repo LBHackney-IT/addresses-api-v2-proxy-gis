@@ -54,46 +54,13 @@ exports.handler = async (event, context) => {
   }
 
   const whitelist = process.env.ALLOWED_ORIGIN;
-  // const whitelist = process.env.WHITELIST;
-  if (false){
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN,
-        'Access-Control-Allow-Credentials': false
-      },
-      body: JSON.stringify({
-        data: await response.json(),
-      }),
-    };
-  }
-  else if (event.headers.origin == 'http://localhost:900'){
+  if (whitelist.indexOf(event.headers.origin) !== -1){
     return{
       statusCode: 200,
       headers: {
         'Access-Control-Allow-Origin': event.headers.origin,
         'Access-Control-Allow-Credentials': false
       },
-      // body: JSON.stringify({
-      // message: 'here is your data!',
-      // input: event.headers.origin,
-      // }),
-      body: JSON.stringify({
-        data: await response.json(),
-      })
-    }
-  }
-  else if (whitelist.indexOf(event.headers.origin) !== -1){
-    return{
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': event.headers.origin,
-        'Access-Control-Allow-Credentials': false
-      },
-      // body: JSON.stringify({
-      // message: 'here is your data!',
-      // input: event.headers.origin,
-      // }),
       body: JSON.stringify({
         data: await response.json(),
       })
@@ -103,13 +70,9 @@ exports.handler = async (event, context) => {
     return{
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': 'none',
+        'Access-Control-Allow-Origin': 'http://localhost:9000',
         'Access-Control-Allow-Credentials': false
       },
-      // body: JSON.stringify({
-      // message: 'here is your data!',
-      // input: event.headers.origin,
-      // }),
       body: JSON.stringify({
         data: await response.json(),
       })
