@@ -31,7 +31,7 @@ Notes on GitFlow and links to docs
 ## Git Secrets
 Secrets are defined in CircleCI env variables:
 - Addresses API token 
-- Whitelist of Allowed Origin Requests (CORS)
+- Whitelist of Allowed Origin Requests (CORS) with the following format : ['origin1.gov.uk','origin2.gov.uk']
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
