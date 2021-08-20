@@ -81,5 +81,37 @@ exports.handler = async (event, context) => {
       })
     }
   }
+  else if (event.headers.origin == 'http://localhost:900'){
+    return{
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': event.headers.origin,
+        'Access-Control-Allow-Credentials': false
+      },
+      // body: JSON.stringify({
+      // message: 'here is your data!',
+      // input: event.headers.origin,
+      // }),
+      body: JSON.stringify({
+        data: await response.json(),
+      })
+    }
+  }
+  else {
+    return{
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': 'none',
+        'Access-Control-Allow-Credentials': false
+      },
+      // body: JSON.stringify({
+      // message: 'here is your data!',
+      // input: event.headers.origin,
+      // }),
+      body: JSON.stringify({
+        data: await response.json(),
+      })
+    }
+  }
   
 };
