@@ -66,14 +66,12 @@ exports.handler = async (event, context) => {
     };
   }
   else {
-    console.log('LOG REQUEST');
     return{
-      statusCode: 401,
-      headers: {
-        'Access-Control-Allow-Origin': 'xxx',
-        'Access-Control-Allow-Credentials': false
-      },
-      body: 'grosse blague'
+      statusCode: 200,
+      body: JSON.stringify({
+      message: 'here is your event!',
+      input: event,
+      }),
     }
   }
   
