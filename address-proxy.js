@@ -24,11 +24,11 @@ exports.handler = async (event, context) => {
     if (event.queryStringParameters.page){
       request = request + `&page=${event.queryStringParameters.page}`;
     }
-    if (event.queryStringParameters.usage_primary){
-      request = request + `&usage_primary=${event.queryStringParameters.usage_primary}`;
+    if (event.queryStringParameters.usage_code){
+      request = request + `&usage_code=${event.queryStringParameters.usage_code}`;
     }
     else{
-      request = request + `&usage_primary=residential,commercial,dual use,land`;
+      request = request + `&usage_code=R,C,X,L`;
     }
     if (event.queryStringParameters.address_status){
       request = request + `&address_status=${event.queryStringParameters.address_status}`;
