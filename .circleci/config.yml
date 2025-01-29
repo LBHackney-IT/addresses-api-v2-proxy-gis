@@ -136,12 +136,12 @@ workflows:
   version: 2
   continuous-delivery:
     jobs:
-      - install-dependencies
-          # filters:
-          #   branches:
-          #     only:
-          #       - staging
-          #       - main
+      - install-dependencies:
+          filters:
+            branches:
+              only:
+                - staging
+                - main
       # - tests:
       #     requires:
       #       - install-dependencies
@@ -153,20 +153,20 @@ workflows:
           requires:
             - install-dependencies
           #   - e2e
-          # filters:
-          #   branches:
-          #     only: 
-          #       - staging
-          #       - main
+          filters:
+            branches:
+              only: 
+                - staging
+                - main
       - build-deploy-staging:
           context: "Serverless Framework"
           requires:
             - assume-role-staging
-          # filters:
-          #   branches:
-          #     only: 
-          #       - staging
-          #       - main
+          filters:
+            branches:
+              only: 
+                - staging
+                - main
       - permit-deploy-production:
           type: approval
           requires:
